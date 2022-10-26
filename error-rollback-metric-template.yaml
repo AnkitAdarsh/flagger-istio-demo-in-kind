@@ -1,0 +1,16 @@
+# This is a sample Metric to test the Rollback of a Canary Deployment Using Flagger
+apiVersion: flagger.app/v1beta1
+kind: MetricTemplate
+metadata:
+  name: error-rate
+  namespace: test
+spec:
+  provider:
+    address: http://prometheus.istio-system:9090
+    type: prometheus
+  query: |
+      http_requests_total{
+        namespace="{{ namespace }}",
+        job="kubernetes-pods",
+        status=~"5.*"
+      }
