@@ -1,4 +1,4 @@
-# Flagger Demo with Istio in a Kind K8s Cluster
+# Canary Deployments with Flagger and Istio in a Kind k8s Cluster
 
 Below are the steps to setup a Local Kind k8s Cluster with Istio to demo Canary Deployments using Flagger.
 
