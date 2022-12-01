@@ -184,7 +184,17 @@ Below are the steps to setup a Local Kind k8s Cluster with Istio to demo Canary 
     destinationrule.networking.istio.io/podinfo-primary
     virtualservice.networking.istio.io/podinfo
     ```
+    
+    Generate Sample Traffic to the Deployment from the Load Testing Application:
+    ```
+    watch curl http://podinfo-canary:9898/status/500
 
+    watch curl http://podinfo-canary:9898/status/500
+
+    hey -z 1m -q 10 -c 2 http://podinfo-canary.test:9898/status/500
+
+    hey -z 1m -q 10 -c 2 http://podinfo-canary.test:9898/status/200
+    ```
 
 ## Demo Canary Deployments and Rollback on Failures
 
